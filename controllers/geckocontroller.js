@@ -7,7 +7,7 @@ const db = require("../models");
 
 // findAll searches the Gecko Coins API and returns only the entries we haven't already saved
 
-// It also makes sure that the books returned from the API all contain a title, author, link, description, and image
+
 module.exports = {
   findAll: function(req, res) {
     const { query: params } = req;
@@ -28,7 +28,7 @@ module.exports = {
       .then(apiCoins =>
         db.Coin.find().then(dbCoins =>
           apiCoins.filter(apiCoin =>
-            dbCoins.every(dbCoin => dbCoin.googleId.toString() !== apiCoin.id)
+            dbCoins.every(dbCoin => dbCoin.Id.toString() !== apiCoin.id)
           )
         )
       )
