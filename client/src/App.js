@@ -3,7 +3,8 @@ import "./App.css";
 import HomePage from "./components/HomePage";
 import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavBar/Navbar";
+import Footer from "./components/Footer";
 import ProtectedExamplePage from "./components/ProtectedExamplePage";
 import { ProvideAuth } from "./util/authContext";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -27,6 +28,7 @@ function App() {
             <ProtectedExamplePage />
           </ProtectedRoute>
         </Switch>
+        <Footer />
       </Router>
     </ProvideAuth>
   );

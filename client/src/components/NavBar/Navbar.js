@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../util/authContext";
+import { useAuth } from "../../util/authContext";
 
 import "./Navbar.css";
 
 function Navbar() {
   const { isLoggedIn, logout } = useAuth();
   return (
-    <nav className="nav">
+    <nav className="navbar navbar-expand navbar-light bg-light">
       <NavLink
         className="nav-link"
         exact
@@ -14,6 +14,14 @@ function Navbar() {
         activeClassName="nav-link-active"
       >
         Home
+      </NavLink>
+      <NavLink
+        className="nav-link"
+        exact
+        to="/"
+        activeClassName="nav-link-active"
+      >
+        Research
       </NavLink>
       {isLoggedIn || (
         <NavLink
@@ -39,7 +47,7 @@ function Navbar() {
           to="/protected/example"
           activeClassName="nav-link-active"
         >
-          Protected
+          Portfolio
         </NavLink>
       )}
       {isLoggedIn && <button onClick={logout}>Logout</button>}
