@@ -18,7 +18,7 @@ function Navbar() {
       <NavLink
         className="nav-link"
         exact
-        to="/"
+        to="/research"
         activeClassName="nav-link-active"
       >
         Research
