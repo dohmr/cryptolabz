@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import API from "../util/API";
+import { Col, Row, Container } from "../components/Grid";
+
+
+
 
 function HomePage() {
   const [data, setData] = useState(null);
@@ -10,9 +14,48 @@ function HomePage() {
   }, []);
   return (
     <div>
-      <h1>Public Page</h1>
-      <h3>Public API Data</h3>
-      <p>{data && data.message}</p>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Cryptolabz</h1>
+          <p class="lead">Cryptolabs description</p>
+        </div>
+      </div>
+      <Container fluid>
+    <Row>
+      <Col size="md-6">
+      <articleSearchForm>
+      <form className="search">
+      <div className="form-group">
+        <h3 htmlFor="language">Search Articles:</h3>
+        <input
+          // value={props.search}
+          // onChange={props.handleInputChange}
+          name="term"
+          type="text"
+          className="form-control"
+          placeholder="Search for an article to begin"
+          id="term"
+        />
+      </div>
+    </form>
+      </articleSearchForm>
+      </Col>
+      <Col size="md-6 sm-12">
+      <div>
+      <h3>Results to Display</h3>
+        <ul className="list-group search-results">
+        <li className="list-group-item">
+          <h2>article title</h2>
+          <h2>article link</h2>
+          {/* <h2>{props.title}</h2>
+          <a href={props.url}>{props.url}</a> */}
+        </li>
+    </ul>
+      </div>
+      </Col>
+    </Row>
+  </Container>
+      
     </div>
   );
 }
