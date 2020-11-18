@@ -6,12 +6,11 @@ const db = require("../models");
 
 
 module.exports = {
-  findAll: function(req, res) {
+  findAll: function (req, res) {
     const { coin } = req.query;
     axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coin}`)
-      .then((dragon)=> {
-        console.log(dragon.data)
-        res.json(dragon.data)
+      .then((coinResponse) => {
+        res.json(coinResponse.data)
       })
 
 
