@@ -2,9 +2,9 @@ import axios from "axios";
 
 
 
-// findCoins: function() {
-//     axios.get("https://api.coingecko.com/api/v3/coins/list");
-//   },
+const findCoins = () => 
+    axios.get("https://api.coingecko.com/api/v3/coins/list");
+
 
 // DB calls
 
@@ -37,7 +37,7 @@ const getProtectedExample = () => axios.get("/api/protected");
 // example api request for public data
 const getPublicExample = () => axios.get("/api/unprotected");
 
-const API = { getCoin, getCoins, deleteCoin, saveCoin, getProtectedExample, getPublicExample };
+const API = { findCoins, getCoin, getCoins, deleteCoin, saveCoin, getProtectedExample, getPublicExample };
 
 export default API;
 // one default export per module.
