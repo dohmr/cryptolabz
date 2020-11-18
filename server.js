@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const coinController = require("./controllers/coincontroller");
+const geckoController = require("./controllers/geckocontroller");
 const authController = require("./controllers/auth.controller");
 const { handleErrors } = require("./middleware/error.middleware");
 const { hasValidToken } = require("./middleware/auth.middleware");
@@ -20,11 +22,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, "client/build")));
 
+
 // routing
+app.post("/api/coins", coinController.create)
 app.post("/api/auth/login", authController.login);
 app.post("/api/auth/signup", authController.signup);
 
 // example of unprotected route. (guest users can access)
+app.get("/api/coins", coinController.findAll)
+app.get("/api/search", geckoController.findAll)
 app.get("/api/unprotected", (req, res) => res.json({ message: "public data" }));
 
 // example of a protected route. Request must have a valid token.
