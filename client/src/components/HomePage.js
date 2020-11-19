@@ -6,40 +6,37 @@ import ArticleSearchForm from "./articleSearchForm";
 
 
 
+
 function HomePage() {
-  const [data, setData] = useState(null);
-  const [formObject, setFormObject] = useState({})
+  const [searchInput, setInput] = useState("")
+  const [title, setTitle] = useState("");
+  const [url, setUrl] = useState("");
+
+
   useEffect(() => {
-
-    API.findCoins().then((response) => {
-      setData(response.data);
-    });
-  }, []);
-  console.log(data)
-
-  function loadBooks() {
-    API.findCoins()
-      .then(res =>
+    console.log(searchInput)
+    API.getArticle(searchInput)
+      .then((res) => {
         console.log(res.data)
-      )
+        setTitle(res.data.response.docs[0].headline.main);
+        setUrl(res.data.response.docs[0].web_url);
+      })
       .catch(err => console.log(err));
-  };
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({ ...formObject, [name]: value })
+  }, [searchInput])
+
+  const handleInputChange = (event) => {
+    const { value } = event.target;
+    setInput({ value })
   };
 
-  function handleFormSubmit(event) {
+
+
+
+  const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (formObject.name && formObject.symbol) {
-      API.saveBook({
-        name: formObject.name,
-        symbol: formObject.symbol,
-        update: formObject.update
-      })
-        .then(res => loadBooks())
-        .catch(err => console.log(err));
-    }
+
+
+
   };
 
 
@@ -53,41 +50,42 @@ function HomePage() {
         </div>
       </div>
       <Container fluid>
-    <Row>
-      <Col size="md-6">
-      <ArticleSearchForm>
-      <form className="search">
-      <div className="form-group">
-        <h3 htmlFor="language">Search Articles:</h3>
-        <input
-          // value={props.search}
-          // onChange={props.handleInputChange}
-          name="term"
-          type="text"
-          className="form-control"
-          placeholder="Search for an article to begin"
-          id="term"
-        />
-      </div>
-    </form>
-      </ArticleSearchForm>
-      </Col>
-      <Col size="md-6 sm-12">
-      <div>
-      <h3>Results to Display</h3>
-        <ul className="list-group search-results">
-        <li className="list-group-item">
-          <h2>article title</h2>
-          <h2>article link</h2>
-          {/* <h2>{props.title}</h2>
+        <Row>
+          <Col size="md-6">
+
+              <form className="search" onSubmit={handleFormSubmit}>
+                <div className="form-group">
+                  <h3 htmlFor="language">Search Articles:</h3>
+                  <input
+                    // value={props.search}
+                    onChange={handleInputChange}
+                    results={searchInput}
+                    name="article"
+                    type="text"
+                    className="form-control"
+                    placeholder="Search for an article to begin"
+                    id="term"
+                  />
+                </div>
+              </form>
+
+          </Col>
+          <Col size="md-6 sm-12">
+            <div>
+              <h3>Results to Display</h3>
+              <ul className="list-group search-results">
+                <li className="list-group-item">
+                  <h2>{title}</h2>
+                  <h2>{url}</h2>
+                  {/* <h2>{props.title}</h2>
           <a href={props.url}>{props.url}</a> */}
-        </li>
-    </ul>
-      </div>
-      </Col>
-    </Row>
-  </Container>
-      
+                </li>
+              </ul>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
     </div>
   );
 }

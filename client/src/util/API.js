@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 
-const findCoins = () => 
+const findCoins = () =>
     axios.get("https://api.coingecko.com/api/v3/coins/list");
 
 
@@ -25,9 +25,11 @@ const saveCoin = (coinData) =>
     axios.post("/api/coins", coinData);
 
 
+const getArticle = (article) => {
+    console.log(article)
+    return axios.get(`/api/search/article/?coin=${article}`)
 
-
-
+}
 
 
 // example api request for protected data (sends error i user isn't logged in)
@@ -37,7 +39,7 @@ const getProtectedExample = () => axios.get("/api/protected");
 // example api request for public data
 const getPublicExample = () => axios.get("/api/unprotected");
 
-const API = { findCoins, getCoin, getCoins, deleteCoin, saveCoin, getProtectedExample, getPublicExample };
+const API = { getArticle, findCoins, getCoin, getCoins, deleteCoin, saveCoin, getProtectedExample, getPublicExample };
 
 export default API;
 // one default export per module.
