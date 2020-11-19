@@ -15,7 +15,7 @@ function CoinsPage() {
     <Row>
       <Col size="md-4">
       <div>
-        <h3 htmlFor="language">Select Coins:</h3>
+        <h3 htmlFor="language">Choose a Coin:</h3>
         <DropDown></DropDown>
       </div>
      </Col>
