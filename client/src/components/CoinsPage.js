@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row, Container } from "../components/Grid";
 import DropDown from "./DropDown.js";
+import CoinForm from "./CoinForm.js";
 
 function CoinsPage() {
   return(
@@ -22,14 +23,8 @@ function CoinsPage() {
       <Col size="md-8 sm-12">
       <div>
       <h3>Coin Data</h3>
-        <ul className="list-group search-results">
-        <li className="list-group-item">
-          <h2>coin market data</h2>
-          {/* <h2>{props.title}</h2>
-          <a href={props.url}>{props.url}</a> */}
-        </li>
-    </ul>
-      </div>
+        <CoinForm></CoinForm>
+    </div>
       </Col>
     </Row>
   </Container>
