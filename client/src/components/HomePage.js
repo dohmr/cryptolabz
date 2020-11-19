@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../util/API";
 import { Col, Row, Container } from "../components/Grid";
+import ArticleSearchForm from "./articleSearchForm";
 
 
 
@@ -54,7 +55,7 @@ function HomePage() {
       <Container fluid>
     <Row>
       <Col size="md-6">
-      <articleSearchForm>
+      <ArticleSearchForm>
       <form className="search">
       <div className="form-group">
         <h3 htmlFor="language">Search Articles:</h3>
@@ -69,7 +70,7 @@ function HomePage() {
         />
       </div>
     </form>
-      </articleSearchForm>
+      </ArticleSearchForm>
       </Col>
       <Col size="md-6 sm-12">
       <div>
