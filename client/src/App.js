@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import ProtectedExamplePage from "./components/ProtectedExamplePage";
 import { ProvideAuth } from "./util/authContext";
 import ProtectedRoute from "./components/ProtectedRoute";
-import ResearchPage from "./components/ResearchPage";
+import CoinsPage from "./components/CoinsPage";
 
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/research">
-            <ResearchPage />
+          <Route path="/coins">
+            <CoinsPage />
           </Route>
           <Route path="/login">
             <LoginPage />
