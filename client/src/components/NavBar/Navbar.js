@@ -18,10 +18,10 @@ function Navbar() {
       <NavLink
         className="nav-link"
         exact
-        to="/research"
+        to="/coins"
         activeClassName="nav-link-active"
       >
-        Research
+        Coins
       </NavLink>
       {isLoggedIn || (
         <NavLink
