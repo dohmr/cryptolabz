@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../util/API";
 import { Col, Row, Container } from "../components/Grid";
+import ArticleSearchForm from "./articleSearchForm";
 
 
 
@@ -42,10 +43,10 @@ function HomePage() {
 
   return (
     <div>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Cryptolabz</h1>
-          <p class="lead">Cryptolabs description</p>
+      <div className="jumbotron jumbotron-fluid">
+        <div className="container">
+          <h1 className="display-4">Cryptolabz</h1>
+          <p className="lead">Cryptolabs description</p>
         </div>
       </div>
       <Container fluid>
