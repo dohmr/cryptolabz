@@ -27,7 +27,7 @@ const saveCoin = (coinData) =>
 
 const getArticle = (article) => {
     console.log(article)
-    return axios.get(`/api/search/article/?coin=${article}`)
+    return axios.get(`/api/search/article/?search=${article}`)
 
 }
 

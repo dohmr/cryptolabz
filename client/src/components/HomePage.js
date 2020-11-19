@@ -2,10 +2,6 @@ import { useEffect, useState } from "react";
 import API from "../util/API";
 import { Col, Row, Container } from "../components/Grid";
 
-
-
-
-
 function HomePage() {
   const [searchInput, setInput] = useState("")
   const [title, setTitle] = useState("");
@@ -25,20 +21,13 @@ function HomePage() {
 
   const handleInputChange = (event) => {
     const { value } = event.target;
-    setInput({ value })
+    setInput(value)
   };
-
-
 
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-
-
-
   };
-
-
 
   return (
     <div>
