@@ -2,8 +2,8 @@ import axios from "axios";
 
 
 
-const findCoins = () =>
-    axios.get("https://api.coingecko.com/api/v3/coins/list");
+const findCoins = (query) =>
+    axios.get(`/api/search/coin/?coin=${query}`);
 
 
 // DB calls
