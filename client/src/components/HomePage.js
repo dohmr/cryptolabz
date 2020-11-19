@@ -34,9 +34,6 @@ function HomePage() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-
-
-
   };
 
 
