@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../util/authContext";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const styles = {
   wrapper: {
     marginTop: "2rem",
@@ -21,6 +24,10 @@ function LoginPage() {
   const history = useHistory();
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [isPending, setIsPending] = useState(false);
+  const passLeast = () => toast("Password must have at least 8 characters.", {position: "top-center",});
+  const userLeast = () => toast("Username must contain at least 6 characters.", {position: "top-center",});
+  const userMax = () => toast("Username must not contain more than 16 characters.", {position: "top-center",});
+  const errorToast = () => toast("An error occurred.", {position: "top-center",});
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -31,18 +38,18 @@ function LoginPage() {
     event.preventDefault();
     const { username, password } = formState;
     if (password.length < 8) {
-      alert("Password must have at least 8 characters.");
+      passLeast();
     } else if (username.length < 6) {
-      alert("Username must contain at least 6 characters.");
+      userLeast();
     } else if (username.length > 16) {
-      alert("Username must not contain more than 16 characters.");
+      userMax();
     } else {
       setIsPending(true);
       login({ username, password })
-        .then(() => history.push("/protected/example"))
+        .then(() => history.push("/coins"))
         .catch((error) => {
           console.log(error);
-          alert("An error occurred.");
+          errorToast();
           setIsPending(false);
         });
     }
@@ -69,9 +76,10 @@ function LoginPage() {
           value={formState.password}
           onChange={handleInputChange}
         />
-        <button type="submit" style={styles.submitButton}>
+        <button type="submit" style={styles.submitButton} onClick={handleSubmit}>
           Submit
         </button>
+        <ToastContainer />
       </form>
     </div>
   );
