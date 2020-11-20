@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row, Container } from "../components/Grid";
 import DropDown from "./DropDown.js";
 import CoinForm from "./CoinForm.js";
+import { Table } from "react-bootstrap";
 
 function CoinsPage() {
   return(
@@ -23,7 +24,20 @@ function CoinsPage() {
       <Col size="md-8 sm-12">
       <div>
       <h3>Coin Data</h3>
-        <CoinForm></CoinForm>
+      <Table striped bordered hover size="sm">
+  <thead>
+    <tr>
+      <th>Fav</th>
+      <th>Coin</th>
+      <th>Price</th>
+      <th>24hr Growth</th>
+      <th>7 day Growth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <CoinForm></CoinForm>
+  </tbody>
+</Table>
     </div>
       </Col>
     </Row>
