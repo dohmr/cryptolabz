@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import DropDown from "./DropDown.js";
 import API from "../util/API";
 import { Col, Row, Container } from "../components/Grid";
 
@@ -27,9 +28,9 @@ function HomePage() {
   };
 
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-  };
+  // const handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  // };
 
   return (
     <div>
@@ -43,21 +44,14 @@ function HomePage() {
         <Row>
           <Col size="md-6">
 
-              <form className="search" onSubmit={handleFormSubmit}>
-                <div className="form-group">
-                  <h3 htmlFor="language">Search Articles:</h3>
-                  <input
-                    // value={props.search}
-                    onChange={handleInputChange}
-                    results={searchInput}
-                    name="article"
-                    type="text"
-                    className="form-control"
-                    placeholder="Search for an article to begin"
-                    id="term"
-                  />
-                </div>
-              </form>
+            <div className="form-group">
+              <h3 htmlFor="language">Search Articles:</h3>
+              <DropDown
+                handleInputChange={handleInputChange}
+                results={searchInput}
+              />
+            </div>
+
 
           </Col>
           <Col size="md-6 sm-12">
@@ -71,7 +65,7 @@ function HomePage() {
                     <a href={url}>
                       Got to NYTimes Article
                       </a>
-                      </h2>
+                  </h2>
                 </li>
               </ul>
             </div>
