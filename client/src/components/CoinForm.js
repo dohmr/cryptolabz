@@ -7,7 +7,7 @@ import React from "react";
 function CoinForm(props) {
     return (
       <tr>
-      <td><i class="far fa-star"></i></td>
+      <td><i className="far fa-star"></i></td>
       <td><img src={props.image} alt={props.coin} height="40px" width="40px"/></td>
       <td>{props.coin}</td>
       <td>{props.price}</td>
