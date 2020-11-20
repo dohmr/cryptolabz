@@ -10,9 +10,9 @@ function DropDown(props) {
         <option value="xrp">XRP</option>
         <option value="chainlink">Chainlink</option>
         <option value="litecoin">Litecoin</option>
-        <option value="bitcoinCash">Bitcoin Cash</option>
+        <option value="bitcoin-cash">Bitcoin Cash</option>
         <option value="polkadot">Polkadot</option>
-        <option value="binanceCoin">Binance Coin</option>
+        <option value="binancecoin">Binance Coin</option>
         <option value="cardano">Cardano</option>
     </select>
   </div>
