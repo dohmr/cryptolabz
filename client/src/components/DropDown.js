@@ -1,9 +1,9 @@
 import React from "react";
 
-function DropDown() {
+function DropDown(props) {
   return (
   <div>
-    <select name="coins" id="coins">
+    <select name="coins" id="coins" value={props.searchInput} onChange={props.handleInputChange}>
         <option value="bitcoin">Bitcoin</option>
         <option value="ethereum">Ethereum</option>
         <option value="tether">Tether</option>
