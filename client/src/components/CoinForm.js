@@ -17,7 +17,7 @@ function CoinForm(props) {
     return (
       <tr>
       <td><i 
-      class="far fa-star" 
+      className="far fa-star" 
       // onClick={handleClick}
       ></i></td>
       <td>

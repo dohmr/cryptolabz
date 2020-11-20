@@ -13,7 +13,6 @@ function HomePage() {
     console.log(searchInput)
     API.getArticle(searchInput)
       .then((res) => {
-        console.log(res.data)
         setTitle(res.data.response.docs[0].headline.main);
         setUrl(res.data.response.docs[0].web_url);
         setSnippet(res.data.response.docs[0].snippet);

@@ -1,56 +1,54 @@
-import { NavLink } from "react-router-dom";
 import { useAuth } from "../../util/authContext";
-import "./Navbar.css";
+import { Navbar, Nav } from "react-bootstrap";
+import React from "react";
+import CustomNavLink from "./CustomNavLink"
 
-function Navbar() {
+
+function NavigationBar() {
   const { isLoggedIn, logout } = useAuth();
   return (
-    <nav className="navbar navbar-expand navbar-light bg-light">
-      <NavLink
-        className="nav-link"
-        exact
-        to="/"
-        activeClassName="nav-link-active"
-      >
-        Home
-      </NavLink>
-      <NavLink
-        className="nav-link"
-        exact
-        to="/coins"
-        activeClassName="nav-link-active"
-      >
-        Coins
-      </NavLink>
+    <Navbar bg="dark" variant="dark">
+    <Navbar.Brand to="/">Cryptolabz</Navbar.Brand>
+    <Nav className="mr-auto">
+      <CustomNavLink
+      exact 
+      to="/">Home</CustomNavLink>
+      <CustomNavLink 
+      exact
+      to="/coins"
+     >Coins
+      </CustomNavLink>
+    </Nav>
       {isLoggedIn || (
-        <NavLink
-          className="nav-link"
-          to="/login"
-          activeClassName="nav-link-active"
+        <CustomNavLink
+        
+        to="/login"
+        
         >
           Login
-        </NavLink>
+        </CustomNavLink>
       )}
       {isLoggedIn || (
-        <NavLink
-          className="nav-link"
-          to="/signup"
-          activeClassName="nav-link-active"
+        <CustomNavLink
+        
+        to="/signup"
+        
         >
           Signup
-        </NavLink>
+        </CustomNavLink>
       )}
       {isLoggedIn && (
-        <NavLink
-          className="nav-link"
-          to="/protected/example"
-          activeClassName="nav-link-active"
+        <CustomNavLink
+       
+        to="/protected/example"
+       
         >
           Portfolio
-        </NavLink>
+        </CustomNavLink>
       )}
       {isLoggedIn && <button onClick={logout}>Logout</button>}
-    </nav>
+
+    </Navbar>
   );
 }
-export default Navbar;
+export default NavigationBar;

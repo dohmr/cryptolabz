@@ -1,30 +1,33 @@
 import axios from "axios";
 
 
-// Get coins from API
-const findCoins = (query) =>
-    axios.get(`/api/search/coin/?coin=${query}`);
 
 
 // DB calls
 
 // Gets all coins
 const getCoins = () =>
-    axios.get("/api/coins");
+axios.get("/api/coins");
 
 // Gets the coin with the given id
 const getCoin = (id) =>
-    axios.get("/api/coins/" + id);
+axios.get("/api/coins/" + id);
 
 // Deletes the coin with the given id
 const deleteCoin = (id) =>
-    axios.delete("/api/coins/" + id);
+axios.delete("/api/coins/" + id);
 
 // Saves a coin to the database
 const saveCoin = (coinData) =>
-    axios.post("/api/coins", coinData);
+axios.post("/api/coins", coinData);
 
+// API calls
 
+// Get coins from API
+const findCoins = (query) =>
+    axios.get(`/api/search/coin/?coin=${query}`);
+    
+// Get articles from API
 const getArticle = (article) => {
     console.log(article)
     return axios.get(`/api/search/article/?search=${article}`)
