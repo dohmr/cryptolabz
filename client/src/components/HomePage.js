@@ -6,6 +6,7 @@ function HomePage() {
   const [searchInput, setInput] = useState("")
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
+  const [snippet, setSnippet] = useState("")
 
 
   useEffect(() => {
@@ -15,6 +16,7 @@ function HomePage() {
         console.log(res.data)
         setTitle(res.data.response.docs[0].headline.main);
         setUrl(res.data.response.docs[0].web_url);
+        setSnippet(res.data.response.docs[0].snippet);
       })
       .catch(err => console.log(err));
   }, [searchInput])
@@ -60,13 +62,16 @@ function HomePage() {
           </Col>
           <Col size="md-6 sm-12">
             <div>
-              <h3>Results to Display</h3>
+              <h3>Top Article</h3>
               <ul className="list-group search-results">
                 <li className="list-group-item">
                   <h2>{title}</h2>
-                  <h2>{url}</h2>
-                  {/* <h2>{props.title}</h2>
-          <a href={props.url}>{props.url}</a> */}
+                  <p>{snippet}</p>
+                  <h2>
+                    <a href={url}>
+                      Got to NYTimes Article
+                      </a>
+                      </h2>
                 </li>
               </ul>
             </div>

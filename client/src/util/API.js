@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-
+// Get coins from API
 const findCoins = (query) =>
     axios.get(`/api/search/coin/?coin=${query}`);
 

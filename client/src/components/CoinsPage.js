@@ -19,11 +19,11 @@ function CoinsPage() {
     API.findCoins(searchInput)
       .then((res) => {
         console.log(res.data)
-        setImage(res.data.[0].image);
-        setCoin(res.data.[0].name);
-        setPrice(res.data.[0].current_price);
-        setDay(res.data.[0].price_change_percentage_24h);
-        setWeek(res.data.[0].ath_change_percentage);
+        setImage(res.data[0].image);
+        setCoin(res.data[0].name);
+        setPrice(res.data[0].current_price);
+        setDay(res.data[0].price_change_percentage_24h);
+        setWeek(res.data[0].ath_change_percentage);
       })
       .catch(err => console.log(err));
   }, [searchInput])
@@ -52,7 +52,10 @@ function CoinsPage() {
           <Col size="md-4">
             <div>
               <h3 htmlFor="language">Choose a Coin:</h3>
-              <DropDown handleInputChange={handleInputChange} results={searchInput} />
+              <DropDown 
+              handleInputChange={handleInputChange} 
+              results={searchInput} 
+              />
             </div>
           </Col>
           <Col size="md-8 sm-12">
@@ -70,7 +73,13 @@ function CoinsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <CoinForm image={image} coin={coin} price={price} day={day} week={week}></CoinForm>
+                  <CoinForm 
+                  image={image} 
+                  coin={coin} 
+                  price={price} 
+                  day={day} 
+                  week={week}
+                  />
                 </tbody>
               </Table>
             </div>
