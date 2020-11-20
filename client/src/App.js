@@ -5,7 +5,7 @@ import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
 import Navbar from "./components/NavBar/Navbar";
 import Footer from "./components/Footer";
-import ProtectedExamplePage from "./components/ProtectedExamplePage";
+import ProtectedPortfolioPage from "./components/ProtectedPortfolioPage";
 import { ProvideAuth } from "./util/authContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CoinsPage from "./components/CoinsPage";
@@ -28,8 +28,8 @@ function App() {
           <Route path="/signup">
             <SignupPage />
           </Route>
-          <ProtectedRoute path="/protected/example">
-            <ProtectedExamplePage />
+          <ProtectedRoute path="/protected/portfolio">
+            <ProtectedPortfolioPage />
           </ProtectedRoute>
         </Switch>
         <Footer />

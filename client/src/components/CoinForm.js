@@ -1,17 +1,16 @@
 import React from "react";
 
-
+// pass in props for information to be added when mapped through for coin and portfolio pages
 
 function CoinForm() {
     return (
-        <div className="card" style={{ width: "100%"}}>
-        <div className="card-body">
-          <h5 className="card-title">Coin Name</h5>
-          <h5 className="card-subtitle mb-2 text-muted">coin price</h5>
-          <h5 className="card-subtitle mb-2 text-muted">24hr Growth</h5>
-          <h5 className="card-subtitle mb-2 text-muted">7 day Growth</h5>
-        </div>
-      </div>
+      <tr>
+      <td>Fav Icon</td>
+      <td>Bitcoin</td>
+      <td>16,000</td>
+      <td>1.2%</td>
+      <td>5.7%</td>
+    </tr>
     );
   }
   

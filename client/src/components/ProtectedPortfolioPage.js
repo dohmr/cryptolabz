@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../util/authContext";
 import API from "../util/API";
 
-function ProtectedExamplePage() {
+function PortfolioPage() {
   const { logout, user } = useAuth();
   const [data, setData] = useState(null);
 
@@ -24,4 +24,4 @@ function ProtectedExamplePage() {
   );
 }
 
-export default ProtectedExamplePage;
+export default PortfolioPage;
