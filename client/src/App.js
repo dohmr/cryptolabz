@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
 import HomePage from "./components/HomePage";
 import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
@@ -9,6 +8,7 @@ import ProtectedPortfolioPage from "./components/ProtectedPortfolioPage";
 import { ProvideAuth } from "./util/authContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CoinsPage from "./components/CoinsPage";
+import "./App.css";
 
 function App() {
   return (
