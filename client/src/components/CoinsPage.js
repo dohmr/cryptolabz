@@ -12,6 +12,9 @@ function CoinsPage() {
   const [price, setPrice] = useState("");
   const [day, setDay] = useState("");
   const [week, setWeek] = useState("");
+  const [id, setId] = useState("");
+  const [disabledSave, setDisabledSave] = useState(false);
+  const [coins, setCoins] = useState({});
 
 
   useEffect(() => {
@@ -19,6 +22,8 @@ function CoinsPage() {
     API.findCoins(searchInput)
       .then((res) => {
         console.log(res.data)
+        setCoins(res.data[0]);
+        setId(res.data[0].id);
         setImage(res.data[0].image);
         setCoin(res.data[0].name);
         setPrice(res.data[0].current_price);
@@ -33,7 +38,22 @@ function CoinsPage() {
     setInput(value)
   };
 
-
+  const handleSaveCoin = async () => {
+    try {
+      await API.saveCoin(id);
+      setCoins(() => {
+        return coins.map((c) => {
+          if (c.id === coin.id) {
+            setDisabledSave(true);
+            return {...c};
+          }
+          return c
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 
   return (
@@ -71,6 +91,10 @@ function CoinsPage() {
                 </thead>
                 <tbody>
                   <CoinForm 
+                    key= {id}
+                    // {...book}
+                    disable={disabledSave}
+                    onClick={handleSaveCoin(id)}
                   image={image} 
                   coin={coin} 
                   price={price} 
