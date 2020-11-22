@@ -28,10 +28,6 @@ function HomePage() {
   };
 
 
-  // const handleFormSubmit = (event) => {
-  //   event.preventDefault();
-  // };
-
   return (
     <div>
       <div className="jumbotron jumbotron-fluid">
