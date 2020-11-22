@@ -24,10 +24,10 @@ function LoginPage() {
   const history = useHistory();
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [isPending, setIsPending] = useState(false);
-  const passLeast = () => toast("Password must have at least 8 characters.", {position: "top-center",});
-  const userLeast = () => toast("Username must contain at least 6 characters.", {position: "top-center",});
-  const userMax = () => toast("Username must not contain more than 16 characters.", {position: "top-center",});
-  const errorToast = () => toast("An error occurred.", {position: "top-center",});
+  const passLeast = () => toast.error("Password must have at least 8 characters.", {position: "top-center",});
+  const userLeast = () => toast.error("Username must contain at least 6 characters.", {position: "top-center",});
+  const userMax = () => toast.error("Username must not contain more than 16 characters.", {position: "top-center",});
+  const errorToast = () => toast.error("An error occurred.", {position: "top-center",});
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
