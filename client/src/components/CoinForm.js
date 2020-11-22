@@ -10,12 +10,7 @@ function CoinForm(props) {
   return (
     <tr>
       <td>
-        <button>
-          <i
-            className="far fa-star"
-            // onClick={handleClick}
-          ></i>
-        </button>
+          <SaveButton />
       </td>
       <td>
         <img
@@ -30,6 +25,18 @@ function CoinForm(props) {
       <td>{props.day}%</td>
       <td>{props.week}%</td>
     </tr>
+  ); 
+}
+
+function SaveButton({ onClick, disabled }) {
+  return (
+    <button className="btn btn-sm btn-outline-secondary mx-1">
+      <i
+      className={disabled ? "fas fa-star" : "far fa-star"}
+      disabled={disabled}
+      onClick={onClick}
+      ></i>
+    </button>
   );
 }
 
