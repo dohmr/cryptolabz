@@ -1,23 +1,16 @@
-# MERN JWT Boilerplate
+# Crypto Labz 📈
 
-## About This Boilerplate
+Learn  about the crypto-currency market. Research the currently widely-used coins. Develope knowledge of price fluctuations and prepare yourself to invest without the actual cost! 
 
-This setup allows for a Node/Express/React/JWT app which can be easily deployed to Heroku.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Description 📝
 
-An article on how the server is setup with JWT can be found [here](https://hptechblogs.com/using-json-web-token-for-authentication/). This has been modified to use a mongo database instead of hardcoded array of users.
+Research the currency! Market testing by saving coins to your user portfolio. Simulate investments, track growth, and gain the confidence to invest in real crypto-currency markets.
 
-The front end has been setup to use JWT as a way of authenticating users and routes. To understand it's structure better please refer to the following article [here](https://hptechblogs.com/using-json-web-token-react/)
 
-Please feel free to modify this code in anyway you see fit for your project. It is a boilerplate setup that tries to make sure you can get something up and running without having to worry about setting up user authentication from scratch.
-I highly suggest you read the articles before jumping in so you can have an better understanding of how everything works in the code. 
+## Starting the app locally 💻
 
-Server-side article and using JWT: https://hptechblogs.com/using-json-web-token-for-authentication/
-
-Front End article on using the JWT on a react application: https://hptechblogs.com/using-json-web-token-react/
-
-## Starting the app locally
+[CryptoLabz Repo // GitHub](https://github.com/dohmr/cryptolabz)
 
 Add a .env at the top level of this project.
 
@@ -41,17 +34,42 @@ npm start
 
 That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
 
-### Create a Git Repo
+## Screens 📷
 
-Once you're ready to deploy, start by making sure your project is a git repository. If so, proceed to the next section, otherwise run the following commands in your terminal:
+PAGES:
 
-```
-git init
-git add .
-git commit -m "Initial commit"
-```
+![DB & APP](/image.path)
+
+
+## Deployment (Heroku) 
+
+[CryptoLabz Deployed // Heroku](heroku.url)
+
+
+## GitHub Repo
+
+[CryptoLabz Repo // GitHub](https://github.com/dohmr/cryptolabz)
+
+
+### Contributors 👷‍👷‍👷‍
+
+[Garret Bright](https://github.com/garretsb44)
+
+[Dylan Nguyen](https://github.com/babydylan)
+
+[Shawn Yandall](https://github.com/dohmr)
+
+
+### MERN JWT Boilerplate 🛠
+
+This setup allows for a Node/Express/React/JWT app which can be easily deployed to Heroku.
+
+
+Server-side article and using JWT: https://hptechblogs.com/using-json-web-token-for-authentication/
+
+Front End article on using the JWT on a react application: https://hptechblogs.com/using-json-web-token-react/
+
 
 ### Deploying
 
@@ -59,4 +77,6 @@ git commit -m "Initial commit"
 2. Provision a Mongo Database (MongoDB Atlas provides a free sandbox cluster)
 3. Add `SERVER_SECRET` and `MONGODB_URI` to the Heroku config.
 4. Go back and click "Deploy"
+
+
 # cryptolabz
