@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../util/authContext";
 import API from "../util/API";
+import Chart from "../components/Chart"
 
 function PortfolioPage() {
   const { logout, user } = useAuth();
@@ -13,12 +14,14 @@ function PortfolioPage() {
     });
   }, []);
 
+
+
   return (
     <div>
-      <h1>Protected Stuff</h1>
+      <Chart />
+      <h1>COIN Information</h1>
       <p>user id: {user.id}</p>
-      <p>username: {user.username}</p>
-      <h3>Protected API Data Example</h3>
+      <h3>{user.username}'s Coin Purse</h3>
       {data && <pre>{JSON.stringify(data)}</pre>}
     </div>
   );
