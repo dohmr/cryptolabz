@@ -40,7 +40,7 @@ function NavigationBar() {
       {isLoggedIn && (
         <CustomNavLink
        
-        to="/protected/example"
+        to="/protected/portfolio"
        
         >
           Portfolio

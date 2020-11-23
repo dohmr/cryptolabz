@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../util/authContext";
 import API from "../util/API";
+import Chart from "../components/Chart"
 
 function PortfolioPage() {
   const { logout, user } = useAuth();
@@ -12,6 +13,8 @@ function PortfolioPage() {
       setData(response.data);
     });
   }, []);
+
+
 
   return (
     <div>

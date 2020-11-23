@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import DropDown from "./DropDown.js";
 import API from "../util/API";
 import { Col, Row, Container } from "../components/Grid";
+import LineDemo from "../components/Chart"
 
 function HomePage() {
   const [searchInput, setInput] = useState("")
@@ -32,6 +33,7 @@ function HomePage() {
     <div>
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
+          <LineDemo />
           <h1 className="display-4">Cryptolabz</h1>
           <p className="lead">Cryptolabs is a learning platform where users can ran read about the most popular cryptocurrencies, research the most recent market data, and test their knowledge in a personal practice investment portfolio</p>
         </div>
