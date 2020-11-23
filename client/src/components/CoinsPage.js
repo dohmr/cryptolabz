@@ -3,20 +3,37 @@ import { Col, Row, Container } from "../components/Grid";
 import DropDown from "./DropDown.js";
 import CoinForm from "./CoinForm.js";
 import API from "../util/API";
+import {useAuth} from "../util/authContext";
 import { Table } from "react-bootstrap";
 
 function CoinsPage() {
-  const [searchInput, setInput] = useState("")
+  const { isLoggedIn } = useAuth();
+  const [searchInput, setInput] = useState("bitcoin")
   const [image, setImage] = useState("");
   const [coin, setCoin] = useState("");
   const [price, setPrice] = useState("");
   const [day, setDay] = useState("");
   const [week, setWeek] = useState("");
   const [id, setId] = useState("");
-  const [disabledSave, setDisabledSave] = useState(false);
   const [coins, setCoins] = useState({});
- 
+  const [favcoins, setFavcoins] = useState([]);
 
+  console.log("favcoins", favcoins);
+ 
+ useEffect(() => {
+  if (isLoggedIn) {
+    API
+      .getFavcoins(false)
+      .then((response) => {
+        setFavcoins(response.data.favcoins);
+      })
+      .catch((err) => {
+        console.log(err);
+    })
+  } else {
+    setFavcoins([]);
+  }
+ }, [isLoggedIn])
 
   useEffect(() => {
     console.log(searchInput)
@@ -40,25 +57,13 @@ function CoinsPage() {
   };
 
   const handleSaveCoin = async (id) => {
-    console.log("startingSave");
-    console.log(id);
-    // add saveCoin object
     try {
-      await API.saveCoin(id)
-      console.log("atAPI");
-      setCoins(() => {
-        return coins.map((c) => {
-          if (c.id === coin.id) {
-            setDisabledSave(true);
-            console.log("settingDisableTrue");
-            return {...c};
-          }
-          return c
-        });
-      });
+      const response = await API.saveFavcoin(id);
+      setFavcoins(response.data.favcoins);
     } catch (error) {
       console.log(error);
     }
+    
   };
 
 
@@ -99,8 +104,7 @@ function CoinsPage() {
                   <CoinForm 
                     key= {id}
                   
-                  disabled={disabledSave}
-                  // onSave={() => handleSaveCoin(id)}
+                  disabled={!isLoggedIn || favcoins.includes(id)}
                   onClick={() => handleSaveCoin(id)}
                   image={image} 
                   coin={coin} 

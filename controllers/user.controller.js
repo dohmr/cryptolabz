@@ -1,13 +1,18 @@
 const db = require("../models");
 const { fetchCoinData } = require("../util/gecko-api.js");
 
-// get user favcoins
 const findAllFavcoins = async (req, res) => {
   try {
-    const {favcoins} = await db.User.findById(req.user.id);
-    const ids = favcoin.join(",");
-    const { data } = await fetchCoinData(ids);
-    res.json(data);
+    const { favcoins } = await db.User.findById(req.user.id);
+
+    // get market data from gecko api if url contains ?include_data=true
+    if (req.query.include_data === "true") {
+      const ids = favcoin.join(",");
+      const { data } = await fetchCoinData(ids);
+      res.json(data);
+    } else {
+      res.json({ favcoins })
+    }
   } catch (error) {
     console.log(error);
     res.status(400).end();
