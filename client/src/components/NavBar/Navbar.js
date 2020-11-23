@@ -2,7 +2,7 @@ import { useAuth } from "../../util/authContext";
 import { Navbar, Nav } from "react-bootstrap";
 import React from "react";
 import CustomNavLink from "./CustomNavLink"
-
+import { Button } from "react-bootstrap";
 
 function NavigationBar() {
   const { isLoggedIn, logout } = useAuth();
@@ -46,7 +46,7 @@ function NavigationBar() {
           Portfolio
         </CustomNavLink>
       )}
-      {isLoggedIn && <button onClick={logout}>Logout</button>}
+      {isLoggedIn && (<Button variant="outline-danger" onClick={logout}>Logout</Button>)}
 
     </Navbar>
   );
