@@ -15,7 +15,7 @@ function CoinsPage() {
   const [id, setId] = useState("");
   const [disabledSave, setDisabledSave] = useState(false);
   const [coins, setCoins] = useState({});
- 
+
 
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function CoinsPage() {
           if (c.id === coin.id) {
             setDisabledSave(true);
             console.log("settingDisableTrue");
-            return {...c};
+            return { ...c };
           }
           return c
         });
@@ -75,9 +75,9 @@ function CoinsPage() {
           <Col size="md-4">
             <div>
               <h3 htmlFor="language">Choose a Coin:</h3>
-              <DropDown 
-              handleInputChange={handleInputChange} 
-              results={searchInput} 
+              <DropDown
+                handleInputChange={handleInputChange}
+                results={searchInput}
               />
             </div>
           </Col>
@@ -96,17 +96,17 @@ function CoinsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <CoinForm 
-                    key= {id}
-                  
-                  disabled={disabledSave}
-                  // onSave={() => handleSaveCoin(id)}
-                  onClick={() => handleSaveCoin(id)}
-                  image={image} 
-                  coin={coin} 
-                  price={price} 
-                  day={day} 
-                  week={week}
+                  <CoinForm
+                    key={id}
+
+                    disabled={disabledSave}
+                    // onSave={() => handleSaveCoin(id)}
+                    onClick={() => handleSaveCoin(id)}
+                    image={image}
+                    coin={coin}
+                    price={price}
+                    day={day}
+                    week={week}
                   />
                 </tbody>
               </Table>
