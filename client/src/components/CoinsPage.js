@@ -15,6 +15,7 @@ function CoinsPage() {
   const [id, setId] = useState("");
   const [disabledSave, setDisabledSave] = useState(false);
   const [coins, setCoins] = useState({});
+ 
 
 
   useEffect(() => {
@@ -38,13 +39,18 @@ function CoinsPage() {
     setInput(value)
   };
 
-  const handleSaveCoin = async () => {
+  const handleSaveCoin = async (id) => {
+    console.log("startingSave");
+    console.log(id);
+    // add saveCoin object
     try {
-      await API.saveCoin(id);
+      await API.saveCoin(id)
+      console.log("atAPI");
       setCoins(() => {
         return coins.map((c) => {
           if (c.id === coin.id) {
             setDisabledSave(true);
+            console.log("settingDisableTrue");
             return {...c};
           }
           return c
@@ -92,9 +98,10 @@ function CoinsPage() {
                 <tbody>
                   <CoinForm 
                     key= {id}
-                    // {...book}
-                    disable={disabledSave}
-                    onClick={handleSaveCoin(id)}
+                  
+                  disabled={disabledSave}
+                  // onSave={() => handleSaveCoin(id)}
+                  onClick={() => handleSaveCoin(id)}
                   image={image} 
                   coin={coin} 
                   price={price} 
