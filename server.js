@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const coinController = require("./controllers/coincontroller");
+const userController = require("./controllers/user.controller.js");
 const geckoController = require("./controllers/geckocontroller");
 const nytimesController = require("./controllers/nytimesController");
 const authController = require("./controllers/auth.controller");
@@ -25,6 +26,8 @@ app.use(express.static(path.resolve(__dirname, "client/build")));
 
 
 // routing
+app.get("/api/favcoins", hasValidToken, userController.findAllFavcoins);
+app.post("/api/favcoins", hasValidToken, userController.findAllFavcoins);
 app.post("/api/coins", coinController.create)
 app.post("/api/auth/login", authController.login);
 app.post("/api/auth/signup", authController.signup);

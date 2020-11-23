@@ -4,6 +4,10 @@ const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 10;
 
 const schema = new mongoose.Schema({
+  favcoins: {
+    type: [String],
+    default: []
+  },
   username: {
     type: String,
     minlength: 6,

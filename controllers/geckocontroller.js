@@ -1,5 +1,6 @@
 const axios = require("axios");
 const db = require("../models");
+const { fetchCoinData } = require("../util/gecko-api.js");
 
 
 // https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=
@@ -8,12 +9,9 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
     const { coin } = req.query;
-    axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coin}`)
+    fetchCoinData(coin)
       .then((coinResponse) => {
         res.json(coinResponse.data)
       })
-
-
-
   }
 };
