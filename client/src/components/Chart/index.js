@@ -37,8 +37,8 @@ export default class Chart extends Component {
         <Line 
         ref="chart" 
         data={data}
-        width={"100%"}
-        height={"25%"}
+        width={100}
+        height={25}
         options={{ maintainAspectRatio: true }} />
       </div>
     );
