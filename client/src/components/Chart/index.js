@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import { Line } from 'react-chartjs-2';
 
 const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['Initial', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
   datasets: [
     {
-      label: 'My First dataset',
+      label: 'Faux Investment',
       fill: false,
       lineTension: 0.1,
       backgroundColor: 'rgba(75,192,192,0.4)',
@@ -23,17 +23,23 @@ const data = {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [65, 59, 80, 81, 56, 55, 40]
+      // options={{ maintainAspectRatio: false }},
+      data: [40, 59, 80, 81, 56, 55, 40]
     }
   ]
 };
 
-export default class LineDemo extends Component {
+export default class Chart extends Component {
   render() {
     return (
       <div>
-        <h2>Line Example</h2>
-        <Line ref="chart" data={data} />
+        <h2>Potential Risk</h2>
+        <Line 
+        ref="chart" 
+        data={data}
+        width={"100%"}
+        height={"25%"}
+        options={{ maintainAspectRatio: true }} />
       </div>
     );
   }
