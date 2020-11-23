@@ -59,7 +59,7 @@ function HomePage() {
                   <p>{snippet}</p>
                   <h2>
                     <a href={url}>
-                      Got to NYTimes Article
+                      Go to NYTimes Article
                       </a>
                   </h2>
                 </li>

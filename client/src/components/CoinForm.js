@@ -5,12 +5,13 @@ import { React, useState } from "react";
 // pass in props for information to be added when mapped through for coin and portfolio pages
 
 function CoinForm(props) {
-
+  
 
   return (
     <tr>
       <td>
-          <SaveButton />
+          <SaveButton onClick={ props.onClick } disabled={ props.disabled }/>
+          
       </td>
       <td>
         <img
@@ -28,13 +29,15 @@ function CoinForm(props) {
   ); 
 }
 
-function SaveButton({ onClick, disabled }) {
+function SaveButton(props) {
+  console.log("inSaveButton")
   return (
-    <button className="btn btn-sm btn-outline-secondary mx-1">
+    <button onClick={props.onClick} className="btn btn-sm btn-outline-secondary mx-1">
       <i
-      className={disabled ? "fas fa-star" : "far fa-star"}
-      disabled={disabled}
-      onClick={onClick}
+      className={props.disabled ? "fas fa-star" : "far fa-star"}
+       
+      // disabled={disabled} 
+      
       ></i>
     </button>
   );

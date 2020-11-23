@@ -8,7 +8,10 @@ const coinSchema = new Schema({
   image: { type: String },
   description: { type: String, required: true },
   update: { type: Date },
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now },
+  day: {type: Number, required: true },
+  week: {type: Number, required: true },
+  price: {type: Number, required: true }
 });
 
 const Coins = mongoose.model("Coin", coinSchema);
