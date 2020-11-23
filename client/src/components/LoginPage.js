@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../util/authContext";
+import { Button } from "react-bootstrap";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -80,9 +81,9 @@ function LoginPage() {
           value={formState.password}
           onChange={handleInputChange}
         />
-        <button type="submit" style={styles.submitButton} onClick={handleSubmit}>
+        <Button variant="primary" type="submit" style={styles.submitButton} onClick={handleSubmit}>
           Submit
-        </button>
+        </Button>{' '}
         <ToastContainer />
       </form>
     </div>

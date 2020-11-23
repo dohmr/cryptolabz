@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../util/authContext";
-
+import { Button } from "react-bootstrap";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -28,10 +28,10 @@ function SignupPage() {
   const history = useHistory();
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [isPending, setIsPending] = useState(false);
-  const passLeast = () => toast.error("Password must have at least 8 characters.", {position: "top-center",});
-  const userLeast = () => toast.error("Username must contain at least 6 characters.", {position: "top-center",});
-  const userMax = () => toast.error("Username must not contain more than 16 characters.", {position: "top-center",});
-  const errorToast = () => toast.error("An error occurred.", {position: "top-center",});
+  const passLeast = () => toast.error("Password must have at least 8 characters.", { position: "top-center", });
+  const userLeast = () => toast.error("Username must contain at least 6 characters.", { position: "top-center", });
+  const userMax = () => toast.error("Username must not contain more than 16 characters.", { position: "top-center", });
+  const errorToast = () => toast.error("An error occurred.", { position: "top-center", });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -80,9 +80,9 @@ function SignupPage() {
           value={formState.password}
           onChange={handleInputChange}
         />
-        <button type="submit" style={styles.submitButton} onClick={handleSubmit}>
+        <Button variant="primary" type="submit" style={styles.submitButton} onClick={handleSubmit}>
           Submit
-        </button>
+        </Button>{' '}
         <ToastContainer />
       </form>
     </div>
