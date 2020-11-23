@@ -4,6 +4,10 @@ const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 10;
 
 const schema = new mongoose.Schema({
+  favcoins: {
+    type: [String],
+    default: []
+  },
   username: {
     type: String,
     minlength: 6,
@@ -16,10 +20,8 @@ const schema = new mongoose.Schema({
     required: true,
   },
 
-  // add additional user fields as needed
 });
 
-// hash password before saving when the password is new or changed.
 schema.pre("save", function () {
   if (!this.isModified("password")) return Promise.resolve();
 
