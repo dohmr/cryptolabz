@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../util/authContext";
 import API from "../util/API";
-import Chart from "../components/Chart"
+import Chart from "../components/Chart";
+import { Jumbotron, Container } from "react-bootstrap";
 
-function PortfolioPage() {
+
+function PortfolioPage(props) {
   const { logout, user } = useAuth();
   const [data, setData] = useState(null);
 
@@ -18,11 +20,12 @@ function PortfolioPage() {
 
   return (
     <div>
-      <Chart />
-      <h1>COIN Information</h1>
-      <p>user id: {user.id}</p>
-      <h3>{user.username}'s Coin Purse</h3>
-      {data && <pre>{JSON.stringify(data)}</pre>}
+      <Jumbotron fluid>
+        <Container>
+          <h1>7 Day Chart</h1>
+          <Chart />
+        </Container>
+      </Jumbotron>
     </div>
   );
 }
