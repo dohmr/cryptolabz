@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../util/authContext";
 import API from "../util/API";
 import Chart from "../components/Chart";
-import { Jumbotron, Container } from "react-bootstrap";
+import { Col, Row, } from "../components/Grid";
+import { Jumbotron, Container, Table } from "react-bootstrap";
 
 
 function PortfolioPage(props) {
@@ -26,6 +27,28 @@ function PortfolioPage(props) {
           <Chart />
         </Container>
       </Jumbotron>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Fav</th>
+            <th>Icon</th>
+            <th>Coin</th>
+            <th>Price</th>
+            <th>24hr Growth</th>
+            <th>7 day Growth</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>placehold fav</td>
+            <td>placehold icon</td>
+            <td>Bitcoin</td>
+            <td>$price</td>
+            <td>24hr growth %</td>
+            <td>7 day growth %</td>
+          </tr>
+        </tbody>
+      </Table>
     </div>
   );
 }
