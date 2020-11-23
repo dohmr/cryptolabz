@@ -13,10 +13,14 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     maxWidth: "12em",
+    marginLeft: "2rem"
   },
   submitButton: {
     marginTop: "1em",
   },
+  signupHead: {
+    marginLeft: "2rem"
+  }
 };
 
 function SignupPage() {
@@ -56,7 +60,7 @@ function SignupPage() {
   };
   return (
     <div style={styles.wrapper}>
-      <h1>Signup</h1>
+      <h1 style={styles.signupHead}>Signup</h1>
       <div>{isPending && "Loading..."}</div>
       <form style={styles.form} onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
