@@ -27,4 +27,4 @@ const addFavcoin = async (req, res) => {
   }
 }
 
-moduel.exports = { findAllFavcoins, addFavcoin }
+module.exports = { findAllFavcoins, addFavcoin }

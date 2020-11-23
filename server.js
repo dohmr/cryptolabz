@@ -27,7 +27,7 @@ app.use(express.static(path.resolve(__dirname, "client/build")));
 
 // routing
 app.get("/api/favcoins", hasValidToken, userController.findAllFavcoins);
-app.post("/api/favcoins", hasValidToken, userController.findAllFavcoins);
+app.post("/api/favcoins", hasValidToken, userController.addFavcoin);
 app.post("/api/coins", coinController.create)
 app.post("/api/auth/login", authController.login);
 app.post("/api/auth/signup", authController.signup);
