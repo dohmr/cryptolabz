@@ -39,7 +39,9 @@ That's it, your app should be running on <http://localhost:3000>. The Express se
 
 PAGES:
 
-![DB & APP](/image.path)
+Portfolio
+
+![PORTFOLIO Chart](/client/public/portfolio.png)
 
 
 ## Deployment (Heroku) 
