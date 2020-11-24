@@ -18,7 +18,7 @@ function CoinsPage() {
   const [coins, setCoins] = useState({});
   const [favcoins, setFavcoins] = useState([]);
 
-  console.log("favcoins", favcoins);
+  // console.log("favcoins", favcoins);
  
  useEffect(() => {
   if (isLoggedIn) {
@@ -36,10 +36,10 @@ function CoinsPage() {
  }, [isLoggedIn])
 
   useEffect(() => {
-    console.log(searchInput)
+    // console.log(searchInput)
     API.findCoins(searchInput)
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         setCoins(res.data[0]);
         setId(res.data[0].id);
         setImage(res.data[0].image);

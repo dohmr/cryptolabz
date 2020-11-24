@@ -16,7 +16,7 @@ function PortfolioPage(props) {
   const [day, setDay] = useState("");
   const [week, setWeek] = useState("");
   const [id, setId] = useState("");
-  const [coins, setCoins] = useState({});
+  const [coins, setCoins] = useState([]);
   const [favcoins, setFavcoins] = useState([]);
 
 
@@ -26,6 +26,7 @@ function PortfolioPage(props) {
       .then((res) => {
         console.log(res.data)
         setCoins(res.data);
+
         setId(res.data[0].id);
         setImage(res.data[0].image);
         setCoin(res.data[0].name);
@@ -35,7 +36,9 @@ function PortfolioPage(props) {
 
 
       })
+    console.log(coins)
   }, []);
+
 
   return (
     <div>
@@ -57,18 +60,15 @@ function PortfolioPage(props) {
           </tr>
         </thead>
         <tbody>
-          {/* {coins.map(coin => ( */}
-          <CoinForm
-            key={id}
-
-            // disabled={!isLoggedIn || favcoins.includes(id)}
-            // onClick={() => handleSaveCoin(id)}
-            image={image}
-            coin={coin}
-            price={price}
-            day={day}
-            week={week}
-          />
+          {coins.map(coin => (
+            <CoinForm
+              key={coin.id}
+              image={coin.image}
+              coin={coin.name}
+              price={coin.current_price}
+              day={coin.price_change_percentage_24h}
+              week={coin.ath_change_percentage}
+            />
           ))}
         </tbody>
       </Table>
