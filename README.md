@@ -44,7 +44,7 @@ PAGES:
 
 ## Deployment (Heroku) 
 
-[CryptoLabz Deployed // Heroku](heroku.url)
+[CryptoLabz Deployed // Heroku](https://morning-dusk-14417.herokuapp.com/)
 
 
 ## GitHub Repo
