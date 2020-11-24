@@ -73,6 +73,7 @@ function CoinsPage() {
         <div className="container">
           <h1 className="display-4">Coins, Coins, Coins</h1>
           <p className="lead">Please select a coin from the dropdown menu below. </p>
+          <p className="lead">Save coins to portfolio by Logging in, or Signing up!</p>
         </div>
       </div>
       <Container fluid>
