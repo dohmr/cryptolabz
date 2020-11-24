@@ -7,7 +7,7 @@ const findAllFavcoins = async (req, res) => {
 
     // get market data from gecko api if url contains ?include_data=true
     if (req.query.include_data === "true") {
-      const ids = favcoin.join(",");
+      const ids = favcoins.join(",");
       const { data } = await fetchCoinData(ids);
       res.json(data);
     } else {

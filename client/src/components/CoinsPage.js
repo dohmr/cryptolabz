@@ -80,9 +80,9 @@ function CoinsPage() {
           <Col size="md-4">
             <div>
               <h3 htmlFor="language">Choose a Coin:</h3>
-              <DropDown 
-              handleInputChange={handleInputChange} 
-              results={searchInput} 
+              <DropDown
+                handleInputChange={handleInputChange}
+                results={searchInput}
               />
             </div>
           </Col>

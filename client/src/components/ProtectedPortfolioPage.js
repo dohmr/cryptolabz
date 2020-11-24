@@ -1,23 +1,41 @@
-import { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { useAuth } from "../util/authContext";
 import API from "../util/API";
 import Chart from "../components/Chart";
 import { Col, Row, } from "../components/Grid";
 import { Jumbotron, Container, Table } from "react-bootstrap";
+import CoinForm from "./CoinForm"
+
+
 
 
 function PortfolioPage(props) {
-  const { logout, user } = useAuth();
-  const [data, setData] = useState(null);
+  const [image, setImage] = useState("");
+  const [coin, setCoin] = useState("");
+  const [price, setPrice] = useState("");
+  const [day, setDay] = useState("");
+  const [week, setWeek] = useState("");
+  const [id, setId] = useState("");
+  const [coins, setCoins] = useState({});
+  const [favcoins, setFavcoins] = useState([]);
+
+
 
   useEffect(() => {
-    // example API call
-    API.getProtectedExample().then((response) => {
-      setData(response.data);
-    });
+    API.getFavcoins(true)
+      .then((res) => {
+        console.log(res.data)
+        setCoins(res.data);
+        setId(res.data[0].id);
+        setImage(res.data[0].image);
+        setCoin(res.data[0].name);
+        setPrice(res.data[0].current_price);
+        setDay(res.data[0].price_change_percentage_24h);
+        setWeek(res.data[0].ath_change_percentage);
+
+
+      })
   }, []);
-
-
 
   return (
     <div>
@@ -39,18 +57,24 @@ function PortfolioPage(props) {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>placehold fav</td>
-            <td>placehold icon</td>
-            <td>Bitcoin</td>
-            <td>$price</td>
-            <td>24hr growth %</td>
-            <td>7 day growth %</td>
-          </tr>
+          {/* {coins.map(coin => ( */}
+          <CoinForm
+            key={id}
+
+            // disabled={!isLoggedIn || favcoins.includes(id)}
+            // onClick={() => handleSaveCoin(id)}
+            image={image}
+            coin={coin}
+            price={price}
+            day={day}
+            week={week}
+          />
+          ))}
         </tbody>
       </Table>
     </div>
   );
+
 }
 
 export default PortfolioPage;
